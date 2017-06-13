@@ -31,7 +31,8 @@ class LinerItemsController < ApplicationController
 
     respond_to do |format|
       if @liner_item.save
-        format.html { redirect_to @liner_item.cart }
+        format.html { redirect_to store_index_url }
+        format.js { @current_item = @liner_item }
         format.json { render :show, status: :created, location: @liner_item }
       else
         format.html { render :new }

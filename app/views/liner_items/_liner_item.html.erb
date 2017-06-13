@@ -1,0 +1,10 @@
+<% if liner_item == @current_item %>
+<tr id="current_item">
+	<% else %>
+</tr>
+<tr>
+<% end %>
+	<td><%= liner_item.quantity %> &times; </td>
+	<td><%= liner_item.product.title %></td>
+	<td><%= number_to_currency(liner_item.total_price) %></td>
+</tr>

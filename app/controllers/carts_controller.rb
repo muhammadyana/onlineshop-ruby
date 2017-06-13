@@ -7,6 +7,7 @@ class CartsController < ApplicationController
   # GET /carts.json
   def index
     @carts = Cart.all
+    @count = @carts.count
   end
 
   # GET /carts/1
@@ -59,7 +60,7 @@ class CartsController < ApplicationController
     @cart.destroy if @cart.id == session[:cart_id]
     session[:cart_id] = nil
     respond_to do |format|
-      format.html { redirect_to store_index_url, notice: 'Your cart is currently empty.' }
+      format.html { redirect_to store_index_url }
       format.json { head :no_content }
     end
   end

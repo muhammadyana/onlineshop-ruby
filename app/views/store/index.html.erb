@@ -1,6 +1,6 @@
 <p id="notice"> <%= notice %> </p>
 <div class="section">
-	<div class="container">
+	
 		<div class="row">
 			<% cache @products do %>
 				<% @products.each do |product| %>
@@ -22,7 +22,7 @@
 											<span ><%= number_to_currency(product.price) %></span>
 										</div>
 										<div class="col s12 m6 l6">
-											<%= button_to 'Buy', liner_items_path(product_id: product), class:'btn' %>
+											<%= button_to 'Buy', liner_items_path(product_id: product), remote: true, class:'btn' %>
 										</div>
 									</div>
 					              	
@@ -34,5 +34,5 @@
 				<% end %>
 			<% end %>
 		</div>
-	</div>
+	
 </div>
