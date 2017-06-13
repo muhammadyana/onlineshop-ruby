@@ -1,0 +1,38 @@
+<p id="notice"> <%= notice %> </p>
+<div class="section">
+	<div class="container">
+		<div class="row">
+			<% cache @products do %>
+				<% @products.each do |product| %>
+					<% cache product do %>
+						<div class="col l4 m4 s12">
+							<div class="card">
+						        <div class="card-image">
+						          <%= image_tag(product.image_url) %>
+
+						         <!--  <a class="btn-floating btn-large halfway-fab waves-effect waves-light"><i class="material-icons">shopping_cart</i></a> -->
+						        </div>
+						        <div class="card-content">
+						        	<span class="card-title "><%= product.title %></span>
+						          	<p><%= sanitize(product.description) %></p>
+						        </div>
+						        <div class="card-action">
+									<div class="row">
+										<div class="col s12 m6 l6">
+											<span ><%= number_to_currency(product.price) %></span>
+										</div>
+										<div class="col s12 m6 l6">
+											<%= button_to 'Buy', liner_items_path(product_id: product), class:'btn' %>
+										</div>
+									</div>
+					              	
+					               
+					            </div>
+						    </div>
+						</div>
+					<% end %>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>

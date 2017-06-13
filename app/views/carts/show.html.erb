@@ -1,0 +1,30 @@
+<div class="container">
+	<p id="notice"><%= notice %></p>
+
+	<h4 class="center">Your cart</h4>
+	<table class="bordered highlight">
+		<thead>
+			<tr>
+				<th>Num Of Product</th>
+				<th>Name Product</th>
+				<th>Price</th>
+			</tr>
+		</thead>
+		<%= @cart.liner_items.each do |item| %>
+			<tr>
+				<td><%= item.quantity %> &times; </td>
+				<td><%= item.product.title %></td>
+				<td><%= number_to_currency(item.total_price) %></td>
+			</tr>
+		<% end %>
+		<tr>
+			<td colspan="2">Total</td>
+			<td><%= number_to_currency(@cart.total_price) %></td>
+		</tr>
+	</table>
+	<br>
+	<%= button_to 'Empty cart', @cart, method: :delete,
+    data: { confirm: 'Are you sure?' } %>
+	<%= link_to 'Edit', edit_cart_path(@cart) %> |
+	<%= link_to 'Back', carts_path %>
+</div>
