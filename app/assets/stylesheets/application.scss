@@ -25,4 +25,18 @@ $secondary-color: color("green", "base") !default;
     width: 900px !important;
     color: grey;
 }
+.depot_form {
+  fieldset {
+    background: #efe;
+    legend {
+      color: #dfd;
+      background: #141;
+      font-family: sans-serif;
+      padding: 0.2em 1em;
+}
+    div {
+      margin-bottom: 0.3em;
+} }
+
+}
 

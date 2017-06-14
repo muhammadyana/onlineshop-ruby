@@ -16,11 +16,15 @@
 				      <a class="brand-logo" href="http://localhost:3000/" id="logo-container"><img height="60" src="http://materialize.labs.my/rails-logo.svg" style="fill: white !important;" width="112"></a>
 				      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 				      <ul class="right hide-on-med-and-down">
-				        <li><a class="waves-effect waves-light" href="/products">Product</a></li>
+				      	 <li><a href="http://www...."><%= t('.home') %></a></li>
+				          <li><a href="http://www..../faq"><%= t('.questions') %></a></li>
+				          <li><a href="http://www..../news"><%= t('.news') %></a></li>
+				          <li><a href="http://www..../contact"><%= t('.contact') %></a></li>
+				       <!--  <li><a class="waves-effect waves-light" href="/products">Product</a></li>
 				        <li><a class="waves-effect waves-light" href="">Question</a></li>
 				        <li><a class="waves-effect waves-light" href="">New</a></li>
-				        <li><a class="waves-effect waves-light" href="">Contact</a></li>
-				        <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><span class="new badge orange" data-badge-caption="Product "> <%= @cart.num_of_cart %> </span>Cart<i class="material-icons right">shopping_cart</i></a></li>
+				        <li><a class="waves-effect waves-light" href="">Contact</a></li> -->
+				        <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><span class="new badge orange" data-badge-caption="Product ">  </span>Cart<i class="material-icons right">shopping_cart</i></a></li>
 				      </ul>
 				    </div>
 			    </div>
@@ -41,28 +45,37 @@
 		  </div>
 		</ul>
 		<ul class="side-nav" id="mobile-demo">
-		    <li><a href="/products">Product</a></li>
-		    <li><a href="">Question</a></li>
-		    <li><a href="">New</a></li>
-		    <li><a href="">Contact</a></li>
+		   <li><a href="http://www...."><%= t('.home') %></a></li>
+          <li><a href="http://www..../faq"><%= t('.questions') %></a></li>
+          <li><a href="http://www..../news"><%= t('.news') %></a></li>
+          <li><a href="http://www..../contact"><%= t('.contact') %></a></li>
 		</ul>
+		
 		<ul id="slide-out" class="side-nav">
-		    <li>
-			    <div class="userView">
-			      <div class="background">
-			        <img src="http://materializecss.com/images/office.jpg">
-			      </div>
-			      <a href="#!user"><img class="circle" src="http://materializecss.com/images/yuna.jpg"></a>
-			      <a href="#!name"><span class="white-text name">John Doe</span></a>
-			      <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
-			    </div>
-		    </li>
-		    <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-		    <li><a href="#!">Second Link</a></li>
-		    <li><div class="divider"></div></li>
-		    <li><a class="subheader">Subheader</a></li>
-		    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+			<% if session[:user_id] %>
+			    <li>
+				    <div class="userView">
+				      <div class="background">
+				        <img src="http://materializecss.com/images/office.jpg">
+				      </div>
+				      <a href="#!user"><img class="circle" src="http://materializecss.com/images/yuna.jpg"></a>
+				      <a href="#!name"><span class="white-text name">John Doe</span></a>
+				      <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+				    </div>
+			    </li>
+			    <li> <%= link_to 'Orders', orders_path, class:'waves-effect' %> </li>
+			    <li> <%= link_to 'Products', products_path, class:'waves-effect' %> </li>
+			     <li><div class="divider"></div></li>
+			    <li> <%= link_to 'Users', users_path, class:'waves-effect' %> </li>
+			    <li> <%= button_to 'Logout', logout_path, method: :delete, class:'btn'   %></li>
+			   <!--  <li><a href="#!">First Link With Icon</a></li>
+			    <li><a href="#!">Second Link</a></li>
+			   
+			    <li><a class="subheader">Subheader</a></li>
+			    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li> -->
+			<% end %>
 		</ul>
+		
 
 		
 	<span class="title"><%= @page_title %></span>

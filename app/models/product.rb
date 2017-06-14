@@ -9,7 +9,9 @@ class Product < ApplicationRecord
 	  with:    %r{\.(gif|jpg|png)\Z}i,
 	  message: 'must be a URL for GIF, JPG or PNG image.'
 	}
-
+	def num_of_cart
+		liner_items.to_a.sum { |item| item.quantity }
+	end
 	private
 	def ensure_not_referenced_by_any_liner_item
 		unless liner_items.empty?
